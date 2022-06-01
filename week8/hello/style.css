@@ -29,11 +29,17 @@ h1 span {
 @keyframes load {
     0% {
         font-size: 25px;
+        letter-spacing: 1px;
+        color: white;
     }
     50% {
-        font-size: 40px;
+        font-size: 60px;
+        letter-spacing: 6px;
+        color: green;
     }
     100% {
         font-size: 25px;
+        letter-spacing: 1px;
+        color: white;
     }
 }
