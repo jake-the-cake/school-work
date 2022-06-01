@@ -2,11 +2,12 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1 {
+.root {
     color: #129061;
+    font-size: 32px;
 }
 
-h1 span {
+.root span {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 900;
     color: #906112;
@@ -35,7 +36,7 @@ h1 span {
     50% {
         font-size: 60px;
         letter-spacing: 6px;
-        color: green;
+        color: red;
     }
     100% {
         font-size: 25px;
