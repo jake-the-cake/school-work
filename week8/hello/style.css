@@ -1,0 +1,39 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    color: #129061;
+}
+
+h1 span {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    color: #906112;
+}
+
+.loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    animation: load .5s infinite;
+}
+
+@keyframes load {
+    0% {
+        font-size: 25px;
+    }
+    50% {
+        font-size: 40px;
+    }
+    100% {
+        font-size: 25px;
+    }
+}
