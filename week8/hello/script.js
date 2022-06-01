@@ -55,10 +55,10 @@ const displayResults = () => {
 
     numA.innerText = `x = ${num1}`;
     numB.innerText = `y = ${num2}`;
-    resultRtn.innerText = result;
+    resultRtn.innerText = `x * y = ${result}`;
 
     inputLine.innerHTML = `if ${numA.outerHTML} and ${numB.outerHTML}`;
-    outputLine.innerHTML = `then x * y = ${result}`;
+    outputLine.innerHTML = `then ${resultRtn.outerHTML}`;
 
     return inputLine.outerHTML + outputLine.outerHTML;
 }
