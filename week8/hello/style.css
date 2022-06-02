@@ -2,9 +2,47 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+     margin: 0px;    
+}
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+    background: radial-gradient(ellipse at top, #e66465, transparent),
+    radial-gradient(ellipse at bottom, #4d9f0c, transparent);;
+}
+
 .root {
     color: #129061;
     font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255,255,255,.3);
+    padding: 50px;
+    row-gap: 30px;
+}
+
+.calculate {
+    border: 3px solid #4d9f0c;
+    background-color: rgb(31, 122, 0);
+    color: #ccc;
+    font-weight: 900;
+    font-size: 24px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: background-color .1s linear;
+    cursor: pointer;
+}
+
+.calculate:hover {
+    background-color: #4d9f0c;
 }
 
 .root span {
@@ -25,6 +63,10 @@
     color: white;
     background-color: black;
     animation: load .5s infinite;
+}
+
+p {
+    margin: 0px;
 }
 
 @keyframes load {

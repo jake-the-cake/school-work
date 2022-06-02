@@ -74,3 +74,8 @@ window.addEventListener('load', () => {
     //setTimeout(pageLoaded, 500);
     pageLoaded();
 });
+
+// handle calculate button
+const handleCalculate = () => {
+    location.reload();
+}
