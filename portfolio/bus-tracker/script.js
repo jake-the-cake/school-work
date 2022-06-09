@@ -1,5 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoicGFwYWpha2VkZXYiLCJhIjoiY2w0NzBnODE1MGRjYzNjb3J0Z3pwZTJmOCJ9.lAFCXMtgFqBMGhF5QVXAgg'
-const currentNarkers = []
+let currentNarkers = []
 
 const map = new mapboxgl.Map({
   container: 'map',
@@ -13,9 +13,11 @@ async function run(){
 	console.log(` refreshed at ${new Date()}`);
 	await currentNarkers.forEach((marker, index) => {
 		currentNarkers[index].remove()
-		currentNarkers.shift()
-	})
-
+		if (index === currentNarkers.length - 1) {
+			currentNarkers = []
+		}
+	})	
+	
 	locations.forEach(location => {
 		const lng = location.attributes.longitude
 		const lat = location.attributes.latitude
@@ -24,7 +26,6 @@ async function run(){
 			.addTo(map)
 		currentNarkers.push(marker)
 	});
-	
 	setTimeout(run, 15000);
 }
 
