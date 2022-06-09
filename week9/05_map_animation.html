@@ -9,16 +9,34 @@
 <style>
   body { margin: 0; padding: 0; }
   #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-
+  .map-overlay {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+  }
+  button {
+    font-size: 1.5em;
+    padding: .6em;
+  }
 </style>
 </head>
 <body>
 
 <div id="map"></div>
+<div class="map-overlay top">
+  <button onclick="move()">Show Stops</button>
+</div>
 
 <script>
 
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFwYWpha2VkZXYiLCJhIjoiY2w0NzBnODE1MGRjYzNjb3J0Z3pwZTJmOCJ9.lAFCXMtgFqBMGhF5QVXAgg'
 
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/streets-v11',
+  center: [-71.104081, 42.365554],
+  zoom: 14
+})
 
 </script>
 </body>

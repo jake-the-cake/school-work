@@ -6,6 +6,8 @@ async function run(){
 	console.log(new Date());
 	console.log(locations);
 
+	
+
 	// timer
 	setTimeout(run, 15000);
 }
@@ -17,7 +19,5 @@ async function getBusLocations(){
 	const json     = await response.json();
 	return json.data;
 }
-
-run();
 
 </script>
