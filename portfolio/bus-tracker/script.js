@@ -26,7 +26,7 @@ async function run(){
 	})
 
 	if (await currentMarkers.length !== 0) {
-		console.log(`not all markers removed at ${date()}`)
+		console.log(`not all markers removed -> ${date().date} @ ${date().time}`)
 	}
 	
 	locations.forEach(location => {
