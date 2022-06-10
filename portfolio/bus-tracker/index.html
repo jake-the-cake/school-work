@@ -15,8 +15,25 @@
 		<!-- main map -->
 		<div id="map"></div>
 		<!-- overlay -->
-		<div class="map-overlay top">
-			<button onclick="run()">Show Stops</button>
+		<div class="overlay-actions top">
+			<fieldset id="actions">
+				<legend for="actions">Controls</legend>
+				<button class="show-button button" onclick="run()">Show Stops</button>
+			</fieldset>
+		</div>
+		<div class="overlay-stats top">
+			<fieldset id="stats">
+				<legend for="stats">Statistics</legend>
+				<div class="overlay-stat-line">
+					Active Buses: <span id="num-buses"></span>
+				</div>
+				<div class="overlay-stat-line">
+					Refreshed: <span id="refresh-time"></span>
+				</div>
+				<div class="overlay-stat-line">
+					<span id="refresh-date"></span>
+				</div>
+			</fieldset>
 		</div>
 
 		<!-- javascript -->
