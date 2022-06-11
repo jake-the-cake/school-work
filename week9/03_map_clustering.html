@@ -23,8 +23,37 @@
 
 <script>
 
+const chicagoLat = 41.873941
+const chicagoLng = -87.624225
 
 
+L.mapbox.accessToken = 'pk.eyJ1IjoicGFwYWpha2VkZXYiLCJhIjoiY2w0NzBnODE1MGRjYzNjb3J0Z3pwZTJmOCJ9.lAFCXMtgFqBMGhF5QVXAgg'
+
+const map = new L.mapbox.map('map')
+  .setView([chicagoLat,chicagoLng], 12)
+  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+
+const markers = new L.MarkerClusterGroup()
+const data = chicago.data
+const length = data.length
+
+data.forEach(point => {
+  const title = point[13]
+  const marker = L.marker(
+    new L.latLng([point[26], point[28]])
+    // {
+    //   icon: L.mapbox.marker.icon({
+    //     'marker-symbol': 'post',
+    //     'marker-color': '0044FF'}),
+    //     title: title
+    // }
+  )
+  marker.bindPopup(title)
+  markers.addLayer(marker)
+})
+map.addLayer(markers)
+console.log(map)
+        
 </script>
 </body>
 </html>
