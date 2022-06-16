@@ -47,7 +47,14 @@ const handleFlipX = () => {
 const displayNewMatrix = () => {
   A.forEach((row, i) => {
     row.forEach((col, j) => {
-      document.getElementById(`cell${(i*3)+j+1}`).innerText = col
+      const targetCell = document.getElementById(`cell${(i*3)+j+1}`)
+      targetCell.innerText = col
+      if (col === 1) {
+        targetCell.style.backgroundColor = '#dcc'
+      }
+      else {
+        targetCell.style.backgroundColor = "#cdc"
+      }
     })
   })
 }
