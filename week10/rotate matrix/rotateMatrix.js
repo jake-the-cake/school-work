@@ -28,10 +28,26 @@ function exchangeCols(A) {
     }
   }
 }
-function rotateMatrix(A) {
+function handleRotate() {
   transpose(A);
   exchangeCols(A);
+  displayNewMatrix()
 }
-transpose(A);
-exchangeCols(A);
-console.log(JSON.stringify(A));
+
+const handleTranspose = () => {
+  transpose(A)
+  displayNewMatrix()
+}
+
+const handleFlipX = () => {
+  exchangeCols(A)
+  displayNewMatrix()
+}
+
+const displayNewMatrix = () => {
+  A.forEach((row, i) => {
+    row.forEach((col, j) => {
+      document.getElementById(`cell${(i*3)+j+1}`).innerText = col
+    })
+  })
+}

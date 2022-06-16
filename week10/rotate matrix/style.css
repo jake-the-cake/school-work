@@ -1,0 +1,57 @@
+* {
+	margin: 0px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.headers {
+	display: flex;
+	width: 80%;
+	max-width: 600px;
+	justify-content: space-between;
+}
+
+.title {
+	font-size: 28px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: end;
+	gap: 15px;
+}
+
+.matrix {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+}
+
+.matrix-cell {
+	padding: 25px;
+	border-radius: 5px;
+	font-size:30px;
+	background-color: #cdc;
+}
+
+button {
+	border: 2px solid greenyellow;
+	outline: none;
+	padding: 10px 15px;
+	color: whitesmoke;
+	background-color: seagreen;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+button:hover {
+	color: yellow;
+}
