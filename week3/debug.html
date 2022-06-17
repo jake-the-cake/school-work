@@ -1,0 +1,41 @@
+<h1>Howdy, March 22 Cohort!</h1>
+
+<!--
+<script>
+	console.log('bonjour.');
+
+	let list = '';
+	const names = [
+		'Josh',
+		'Tim',
+		'Jeff'
+	]
+
+	for (let i=0; i<names.length; i++) {
+		const name = names[i];
+		list += name;
+		if (i < names.length - 1) {
+			list += ', ';
+		};
+	};
+
+	console.log(list);
+</script>
+-->
+
+<script>
+
+	const notFound = true; // OR let notFound = true;
+	let count = 0;
+
+	while (notFound) {
+		if (count === 5000) {
+			console.log('found it!');
+			break; // OR notFound = false;
+		} else {
+			console.log('still looking');
+		};
+		count++;
+	};
+
+</script>

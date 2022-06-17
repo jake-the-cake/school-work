@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel="stylesheet" type="text/css" href="mystyle.css" /></head>
+<body>
+  <script src="ball.js"></script>
+  <script>
+    const size = 30;
+    const x = [];
+    const y = [];
+    const balls = [];
+    const stepSize = 15;
+    let velocity_x = [];
+    let velocity_y = [];
+    let gravity = .4;
+
+    function checkWalls(i) {
+      if (x[i] < 0 || x[i] > 800) velocity_x[i] = -velocity_x[i];
+      if (y[i] > 400) {
+        velocity_y[i] = -velocity_y[i];
+        y[i] = 400;
+      }
+    }
+
+    function update() {
+      for (let i = 0; i < balls.length; i++) {
+        x[i] += velocity_x[i];
+        velocity_y[i] += gravity;
+        y[i] += velocity_y[i];
+        checkWalls(i);
+
+        balls[i].style.left = x[i] + 'px';
+        balls[i].style.top = y[i] + 'px';
+      }
+      setTimeout(update, 100);
+    }
+
+    function getRandom(scale) {
+      return Math.random() * scale;
+    }
+
+    function factory(total) {
+      let n = balls.length;
+      console.log(n);
+      for (let i = 0; i < total; i++) {
+        let velx = Math.floor(getRandom(20) - 10);
+        let vely = Math.floor(getRandom(20) - 10);
+        makeBall(getRandom(800), getRandom(400), "blue", velx, vely, 0);
+      }
+    }
+  </script>
+  <div class="svg-container">
+    <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect
+        x="0"
+        y="0"
+        width="840"
+        height="430"
+        stroke="black"
+        fill="transparent"
+        stroke-width="5"
+      />
+    </svg>
+  </div>
+</body>
+</html>

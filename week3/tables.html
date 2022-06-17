@@ -1,0 +1,39 @@
+<h1>Visible Text for tables.html</h1>
+
+<!--
+<script>
+
+	const multiplier = 15;
+
+	for (let i=1; i<=10; i++) {
+		console.log(i * multiplier);
+	};
+
+</script>
+-->
+
+<script>
+
+	console.log('Here is a multiplication table');
+
+	let mult = 1;
+
+	for (let i=0; i<100; i+=10) {
+		let row = '';
+		for (let j=1; j<=10; j++) {
+			let currentNumber = i + j;
+			if (currentNumber < 10) {
+				currentNumber = "   " + currentNumber;
+			} else if (currentNumber < 100) {
+				currentNumber = "  " + currentNumber;
+			} else {
+				currentNumber = ' 100';
+			};
+			row += currentNumber;
+		}
+		console.log(row);
+		mult++;
+		//console.log(mult);
+	};
+
+</script>
