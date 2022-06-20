@@ -7,6 +7,7 @@ Description:
 How to run:
 - Visit https://jake-the-cake.github.io/school-work/portfolio/bus-tracker/index.html
 - No installation required
+- Click "Show Stops" button to start the tracker
 
 Roadmap:
 - Add a stop/pause control button
