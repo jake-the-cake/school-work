@@ -6,11 +6,12 @@ Description:
 How to run:
 - Visit https://jake-the-cake.github.io/school-work/portfolio/pacmen/index.html
 - No installation required
-- Click "Create A Pacman" to generate a new object
-- Click "Start" to make them move
+- Click "Create New Pac" to generate a new object
+- Click "RUN!" to make them move
 
 Roadmap:
 - Fix mouth speed issue with itteration counter
+- Add style to buttons
 
 MIT License
 
