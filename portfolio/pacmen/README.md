@@ -3,6 +3,9 @@
 Description:
 - This exercise was designed to teach the basics of DOM manipulation using Javascript generated elements
 
+Updates:
+- 6/22/22 > Added background color and button styles
+
 How to run:
 - Visit https://jake-the-cake.github.io/school-work/portfolio/pacmen/index.html
 - No installation required
@@ -11,7 +14,6 @@ How to run:
 
 Roadmap:
 - Fix mouth speed issue with itteration counter
-- Add style to buttons
 
 MIT License
 
