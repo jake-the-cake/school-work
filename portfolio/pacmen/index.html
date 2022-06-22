@@ -1,7 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <title>Pacmen Factory Exercise</title>
+
+    <style>
+        body {
+            background-color: burlywood;
+        }
+
+        button {
+            border: 2px solid violet;
+            background-color: blueviolet;
+            color:lightcyan;
+            font-size: large;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -11,20 +28,20 @@
     </div>
 
     <script>
-    let pos = 0;
+    let pos = 0
     const pacArray = [
         ['./images/pacman1.png', './images/pacman2.png'],
         ['./images/pacman3.png', './images/pacman4.png'],
-    ];
-    let direction = 0;
-    const pacMen = []; // This array holds all the pacmen
+    ]
+    let direction = 0
+    const pacMen = []
 
     // This function returns an object with random values
     function setToRandom(scale) {
         return {
             x: Math.random() * scale,
             y: Math.random() * scale,
-        };
+        }
     }
 
     // Factory to make a PacMan at a random position with random velocity
@@ -44,24 +61,24 @@
         newimg.style.top = position.y + 'px'
 
         // TODO add new Child image to game
-        game.appendChild(newimg);
+        game.appendChild(newimg)
 
         // return details in an object
         return {
             position,
             velocity,
             newimg,
-        };
+        }
     }
 
     function update() {
         pacMen.forEach((item) => {
-            checkCollisions(item);
-            item.position.x += item.velocity.x;
-            item.position.y += item.velocity.y;
+            checkCollisions(item)
+            item.position.x += item.velocity.x
+            item.position.y += item.velocity.y
 
-            item.newimg.style.left = item.position.x;
-            item.newimg.style.top = item.position.y;
+            item.newimg.style.left = item.position.x
+            item.newimg.style.top = item.position.y
 
             if (item.velocity.x > 0) {
                 const currentImage = String(document.location.href).replace('/index.html', pacArray[0][0].slice(1))
@@ -81,8 +98,8 @@
                     item.newimg.src = pacArray[1][0]
                 }
             }
-        });
-        setTimeout(update, 20);
+        })
+        setTimeout(update, 20)
     }
 
     function checkCollisions(item) {
@@ -90,16 +107,16 @@
             item.position.x + item.velocity.x + item.newimg.width > window.innerWidth ||
             item.position.x + item.velocity.x < 0
         )
-            item.velocity.x = -item.velocity.x;
+            item.velocity.x = -item.velocity.x
         if (
             item.position.y + item.velocity.y + item.newimg.height > window.innerHeight ||
             item.position.y + item.velocity.y < 0
         )
-            item.velocity.y = -item.velocity.y;
+            item.velocity.y = -item.velocity.y
     }
 
     function makeOne() {
-        pacMen.push(makePac()); // add a new PacMan
+        pacMen.push(makePac())
     }
     </script>
 </body>
