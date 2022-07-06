@@ -1,0 +1,26 @@
+<script>
+// DESTRUCTURING ASSIGNMENT IN ES6
+
+// receive function output 
+function f() {
+  return [1, 2, 3, 4];
+}
+
+const [a, b] = f(); 
+console.log(a); // 1
+console.log(b); // 2
+
+// select input function parameters
+const user = {
+  id: 209,
+  firstName: 'peter',
+  lastName: 'parker',
+  age: 19
+};
+
+function userId({id}) {
+  return id;
+}
+console.log(userId(user));
+
+</script>

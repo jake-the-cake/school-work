@@ -1,0 +1,34 @@
+<script>
+
+const numbers = [
+  'one',
+  'two',
+  'three',
+];
+
+// use to catch ouput
+let output = null;
+
+// classic
+output = numbers.map(function(label) {
+  return label.length;
+});
+console.log(output);    // [3,3,5]
+
+// rewritten as arrow function
+output = numbers.map((labels) => {
+  return labels.length;
+});
+console.log(output);    // [3,3,5]
+
+// When there is only one parameter, we can remove the surrounding parentheses
+output = numbers.map(labels => {
+  return labels.length;
+});
+console.log(output);    // [3,3,5]
+
+// When the only statement in an arrow function is `return`, we can remove `return` and remove the surrounding curly brackets
+output = numbers.map(label => label.length);
+console.log(output);    // [3,3,5]
+
+</script>

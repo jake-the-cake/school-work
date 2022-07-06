@@ -1,0 +1,16 @@
+<script>
+// Spread properties
+
+let obj1 = { name: 'peter parker', age: 19 };
+let obj2 = { name: 'clark kent', email: 'clark@mit.edu' };
+let obj3 = { sport: 'tennis', city: 'boston' };
+
+let clonedObj = { ...obj1 };
+console.log(clonedObj);
+// {name: "peter parker", age: 19}
+
+let mergedObj = { ...obj1, ...obj2, ...obj3};
+console.log(mergedObj);
+// {name: "clark kent", age: 19, email: "clark@mit.edu", sport: "tennis", city: "boston"}
+
+</script>

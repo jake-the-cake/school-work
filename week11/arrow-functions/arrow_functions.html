@@ -1,0 +1,16 @@
+<script>
+// number labels
+var numbers = [ 'one', 'two', 'three'];
+
+// classic callback
+var output = numbers.map(function(label){
+    return label.length;
+});
+console.log(output);
+
+// arrow function
+var output = numbers.map(label => label.length);
+console.log(output);
+
+
+</script>
