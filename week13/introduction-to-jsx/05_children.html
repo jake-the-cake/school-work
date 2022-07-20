@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin>
+
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <!-- We will put our React component inside this div. -->
+    <div id="root"></div>
+
+    <!-- Load React. -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+  
+    <!-- Load our React component. -->
+    <script defer type="text/babel">
+
+      const element = 
+        <div className="container">
+          <div className="card">
+              <div className="card-header">
+                Featured
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">Special title treatment</h5>
+                <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" className="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+        </div>;
+
+
+      ReactDOM.render(
+        element,
+        document.getElementById('root')
+      );
+
+    </script>
+
+
+  </body>
+</html>

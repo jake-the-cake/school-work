@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <title>Pure</title>
+</head>
+<body>
+  <form id="form">
+    <select id="year">
+        <option>Freshman</option>
+        <option>Sophmore</option>
+        <option>Junior</option>
+        <option>Senior</option>    
+    </select>
+    <div>Name</div>
+    <input id="name" type="text">
+    <div>Email</div>
+    <input id="email" type="text">
+    <div>Password</div>
+    <input id="password" type="text">  
+    <div><input id="checkbox" type="checkbox"> Rememeber me</div>
+    <button type="submit" onclick="handle(event)">Submit</button>    
+  </form>
+  <script>
+    function handle(e){
+        console.log(e.target.form.elements);
+        console.log(e.target.form.elements.year.value);
+        console.log(e.target.form.elements.name.value);
+        console.log(e.target.form.elements.email.value);
+        console.log(e.target.form.elements.password.value);
+        console.log(e.target.form.elements.checkbox.checked);                                
+        event.preventDefault();
+    }
+  </script>
+</body>
+</html>

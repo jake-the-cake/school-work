@@ -1,0 +1,41 @@
+<!-- -------------------------------
+unpkg is a fast, global content 
+delivery network for everything 
+on npm. Use it to quickly and 
+easily load any file from any 
+package using a URL like:
+
+unpkg.com/:package@:version/:file 
+------------------------------- -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <!-- We will put our React component inside this div. -->
+    <div id="root"></div>
+
+    <!-- Load React. -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+  
+    <!-- Load our React component. -->
+    <script defer type="text/babel">
+
+      ReactDOM.render(
+        <h1>Hello World!</h1>,
+        document.getElementById('root')
+      );
+
+    </script>
+
+
+  </body>
+</html>
