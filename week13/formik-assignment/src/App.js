@@ -34,7 +34,6 @@ function App() {
         <div className='label'>Password:</div>
         <input type="text" id="pswField" name="password" onChange={formik.handleChange} value={formik.values.password} />
         { formik.errors.password ? <div id="pswError" className='error'>{formik.errors.password}</div>: null}
-        <div id="emailError"></div>
         <button type='submit' id="submitBtn">Submit</button>
         </form>
     </div>
