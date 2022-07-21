@@ -86,7 +86,7 @@ input:focus {
 .title {
   text-align: center;
   font-size: 2rem;
-  color: #346912;
-  transform: scaleY(.8);
-  text-shadow: 1px 1px 0px #346912, -1px 1px 0px white, -1px -1px 0px white, 1px -1px 0px white;
+  color: #eded69;
+  /* transform: scaleY(.8); */
+  text-shadow: 1px 1px 0px #346912, -1px 1px 0px #346912, -1px -1px 0px #346912, 1px -1px 0px #346912;
 }
