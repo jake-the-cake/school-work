@@ -30,12 +30,12 @@ function App() {
       <form onSubmit={formik.handleSubmit}>
         <div className='label'>Email:</div>
         <input type="text" name="email" id="emailField" onChange={formik.handleChange} value={formik.values.email} />
-        { formik.errors.email ? <div className='error'>{formik.errors.email}</div>: null}
+        { formik.errors.email ? <div className='error' id="emailError">{formik.errors.email}</div>: null}
         <div className='label'>Password:</div>
         <input type="text" id="pswField" name="password" onChange={formik.handleChange} value={formik.values.password} />
-        { formik.errors.password ? <div className='error'>{formik.errors.password}</div>: null}
+        { formik.errors.password ? <div id="pswError" className='error'>{formik.errors.password}</div>: null}
         <div id="emailError"></div>
-        <button type='submit'>Submit</button>
+        <button type='submit' id="submitBtn">Submit</button>
         </form>
     </div>
   );
