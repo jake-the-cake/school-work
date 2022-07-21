@@ -28,6 +28,7 @@ function App() {
   return (
     <div className='container'>
       <form onSubmit={formik.handleSubmit}>
+        <div className='title'>Please Log In</div>
         <div className='label'>Email:</div>
         <input type="text" name="email" id="emailField" onChange={formik.handleChange} value={formik.values.email} />
         { formik.errors.email ? <div className='error' id="emailError">{formik.errors.email}</div>: null}
