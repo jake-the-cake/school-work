@@ -11,9 +11,9 @@ function useForm(initialValues){
         e => {
             if (e.type === 'change'){ 
                 console.log('name:',e.target.name);
+
                 setValues({
-                    ...values,
-                    [e.target.name]: (handleValue(e))
+                    ...values, [e.target.name]: (handleValue(e))
                 });
             }
         }
