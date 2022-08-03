@@ -7,7 +7,10 @@ const autoFocus = (id) => {
 
 const Withdraw = ({screen, balance, setBalance}) => {
     autoFocus('withdraw-input')
+    const originalBalance  = balance
+
     const [currentBalance, setCurrentBalance] = React.useState(balance)
+    const [error, setError] = React.useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -17,59 +20,101 @@ const Withdraw = ({screen, balance, setBalance}) => {
         screen(<TransactionSummary
             screen={screen}
             balance={newBalance}
-            setBalance={setBalance} />)
+            setBalance={setBalance}
+            was={originalBalance}
+            change={Number(document.getElementById('withdraw-input').value) * -1} />)
+    }
+
+    const handleChange = (e) => {
+        if (Number(e.target.value > balance)) {
+            setError(true)
+        }
+        else {
+            if (error) {
+                setError(false)
+            }
+        }
     }
 
     return (
-        <>
+        <div>
             <div className="balance-check">Current Balance: ${currentBalance}</div>
             <form onSubmit={handleSubmit}>
-                <input type="number" id='withdraw-input' />
-                <button>Withdraw</button>
+                <input type="number" id='withdraw-input' onChange={handleChange}/>
+                { error && <div className="error">Insufficient Funds</div> }
+                <button disabled={error}>Withdraw</button>
             </form>
-        </>
+        </div>
     )
 }
 
 const Deposit = ({screen, balance, setBalance}) => {
     autoFocus('deposit-input')
+    const originalBalance  = balance
+
+    const [error, setError] = React.useState(false)
     const [currentBalance, setCurrentBalance] = React.useState(balance)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const newBalance = currentBalance + Number(document.getElementById('deposit-input').value)
         setBalance(newBalance)
-        screen(<MainMenu
+        setCurrentBalance(newBalance)
+        screen(<TransactionSummary
             screen={screen}
             balance={newBalance}
-            setBalance={setBalance} />)
+            setBalance={setBalance}
+            was={originalBalance}
+            change={Number(document.getElementById('deposit-input').value)} />)
+    }
+
+    const handleChange = (e) => {
+        if (Number(e.target.value) < 0) {
+            setError(true)
+        }
+        else {
+            if (error) {
+                setError(false)
+            }
+        }
     }
 
     return (
-        <>
+        <div>
             <div className="balance-check">Current Balance: ${currentBalance}</div>
             <form onSubmit={handleSubmit}>
-                <input type="number" id="deposit-input" />
-                <button>Deposit</button>
+                <input type="number" id="deposit-input" onChange={handleChange} />
+                { error && <div className="error">Deposits cannot be less than $0</div> }
+                <button disabled={error}>Deposit</button>
             </form>
-        </>
+        </div>
     )
 }
 
 const AccountBalance = ({balance, setBalance, screen}) => {
+    const handleClick = (e) => {
+        e.preventDefault()
+        screen(<MainMenu
+            screen={screen}
+            balance={balance}
+            setBalance={setBalance} />)
+    }
     return (
         <div className="balance-container">
-            <div className="balance-check">Balance: ${balance}</div>
-            <button>Main Menu</button>
+            <div className="summary-detail">Current Balance: ${balance}</div>
+            <button onClick={handleClick}>Main Menu</button>
         </div>
 
     )
 }
 
-const TransactionSummary = () => {
+const TransactionSummary = ({balance, setBalance, screen, change, was}) => {
     return (
         <div className="summary-container">
             <div className="summary-status">Transaction successful</div>
+            <div className='summary-detail'>Starting Balance: ${was}</div>
+            <div className='summary-detail'>{change < 0 ? `Withdrawal of $${change * -1}` : `Deposit of $${change}`}</div>
+            <AccountBalance balance={balance} setBalance={setBalance} screen={screen} />
         </div>
     )
 }
@@ -88,7 +133,7 @@ const MainMenu = ({screen, balance, setBalance}) => {
                 screen(<AccountBalance balance={balance} setBalance={setBalance} screen={screen} />)
                 break
             default:
-                screen(<><p>Thank you for banking with Jake!</p><button onClick={() => window.location.reload()}>Start Over?</button></>)
+                screen(<div><p>Thank you for banking with Jake!</p><button onClick={() => window.location.reload()}>Start Over?</button></div>)
         }
     }
 
