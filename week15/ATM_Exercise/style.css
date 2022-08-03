@@ -65,13 +65,14 @@ input {
     border: 3px solid black;
 }
 
-form button {
+button {
     padding: 1rem;
     border-radius: 1rem;
     background-color: #376937;
     color: #ededed;
     cursor: pointer;
     font-size: 1.5rem;
+    width: 100%;
 }
 
 .balance-check {
@@ -81,4 +82,11 @@ form button {
     color: #69edaa;
     background-color: rgba(0,0,0,.2);
     padding: .5rem;
+}
+
+.balance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }

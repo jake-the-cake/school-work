@@ -14,7 +14,7 @@ const Withdraw = ({screen, balance, setBalance}) => {
         const newBalance = currentBalance - Number(document.getElementById('withdraw-input').value)
         setBalance(newBalance)
         setCurrentBalance(newBalance)
-        screen(<MainMenu
+        screen(<TransactionSummary
             screen={screen}
             balance={newBalance}
             setBalance={setBalance} />)
@@ -56,10 +56,10 @@ const Deposit = ({screen, balance, setBalance}) => {
     )
 }
 
-const AccountBalance = () => {
+const AccountBalance = ({balance, setBalance, screen}) => {
     return (
         <div className="balance-container">
-            Balance: $
+            <div className="balance-check">Balance: ${balance}</div>
             <button>Main Menu</button>
         </div>
 
@@ -85,10 +85,10 @@ const MainMenu = ({screen, balance, setBalance}) => {
                 screen(<Deposit screen={screen} balance={balance} setBalance={setBalance} />)
                 break
             case 'balance':
-                screen(pages[3])
+                screen(<AccountBalance balance={balance} setBalance={setBalance} screen={screen} />)
                 break
             default:
-                screen(pages[4])
+                screen(<><p>Thank you for banking with Jake!</p><button onClick={() => window.location.reload()}>Start Over?</button></>)
         }
     }
 
