@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(to bottom,rgba(100,250,225,.5), rgba(200,250,225,.5)), url('nums.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    margin: 0px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: #376037;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: .6rem;
+    color: #eded37;
+    padding: .2rem 1rem;
+    align-items: center;
+}
+
