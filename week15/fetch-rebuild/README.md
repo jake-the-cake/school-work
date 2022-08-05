@@ -1,7 +1,14 @@
 ## Number API Trivia Game
 
 Description:
-- Using an API provided by numbersapi.com, this app generates a new, randomized game of trivia, with 3 unique decoy answers.
+- Using an API (only in development on an http server, otherwise using cached data from API) provided by numbersapi.com, this app generates a new, randomized game of trivia, with 3 unique decoy answers.
+
+Updates:
+>>> Aug 5, 2022 ::
+- Created Scorecard With Running Tallies
+- Set up hard copy of data to get around 'mixed content' error
+- Created button to load another question
+- Disabled clicking of answers after submission
 
 How to run:
 - Visit https://jake-the-cake.github.io/school-work/week15/fetch-rebuild/index.html
@@ -11,9 +18,7 @@ How to run:
 - Selection results display in the console.
 
 Roadmap:
-- Score recorder
-- Results that show in browser
-- Button to load a new question after answer
+- Refacoring needs to be done before expanding
 
 Copyright (c) 2022 Jake Thompson
 
