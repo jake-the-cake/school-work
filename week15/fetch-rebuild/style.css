@@ -63,10 +63,10 @@ body {
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
-    transition: background-color .4s;
+    transition: background-color .4s, transform .4s, margin .4s, box-shadow .4s;
 }
 
-.answer-button:hover {
+.answer-button:hover, .continue-block:hover {
     cursor: pointer;
     color: #ededed;
     background-color: rgba(255,100,255,.8);
@@ -90,6 +90,42 @@ body {
     font-weight: 900;
     text-shadow: 2px 2px 0px #ededed;
 }
+
+.continue-block {
+    padding: 1rem 3rem;
+    margin: 1rem auto 2rem;
+    background-color: #69ed69;
+    color: #6912ad;
+    border: #6912ad 3px solid;
+    border-radius: .5rem;
+    font-style: italic;
+    font-size: 1.3rem;
+    transition: background-color .4s, transform .4s, margin .4s, box-shadow .4s;
+    font-weight: 900;
+}
+
+.score-box {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: #ededed;
+    border: 3px solid #373737;
+    padding: 1rem;
+    box-shadow: 0px 5px 8px 0px #373737;
+}
+
+.score-static {
+    font-size: 1.1rem;
+}
+
+.score-data {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color:#ed6737;
+    text-shadow: 2px 2px 0px #373737;
+}
+
 
 .number-cell {
     color:#ededed;

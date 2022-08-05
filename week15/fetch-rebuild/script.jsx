@@ -22,9 +22,9 @@ const createNewQuestion = async (setNumber, answers, setAnswers, setCurrentQuest
             const formattedTextFromData = textFromData[0].toUpperCase() + textFromData.slice(1)
             if (i === 1) {
                 setNumber(splitData[0])
-                    answerHolder = splitData[0]
-                    answerArray.push(formattedTextFromData)
-                    isValidating = false
+                answerHolder = splitData[0]
+                answerArray.push(formattedTextFromData)
+                isValidating = false
             }
             else {
                 let isUnique = true
@@ -54,21 +54,66 @@ const createNewQuestion = async (setNumber, answers, setAnswers, setCurrentQuest
 const NumberGame = () => {
     const [number, setNumber] = useState(null)
     const [answers, setAnswers] = useState([])
+    const [attempts, setAttempts] = useState(0)
+    const [correctAnswers, setCorrectAnswers] = useState(0)
     const [currentQuestion, setCurrentQuestion] = useState([])
+    const [doContinue, setDoContinue] = useState(null)
+    const [isPlaying, setIsPLaying] = useState(true)
     
     useEffect(() => {
-        createNewQuestion(setNumber, answers, setAnswers, setCurrentQuestion)
-    }, [])
+        if (isPlaying === true) {
+            createNewQuestion(setNumber, answers, setAnswers, setCurrentQuestion)
+        }
+    }, [isPlaying])
+
+    const handleContinue = () => {
+        const [...buttons] = document.getElementsByClassName('answer-button')
+        buttons.forEach(button => {
+            button.style = {}
+        })
+
+        setDoContinue(null)
+        setIsPLaying(true)
+    }
 
     const handleSubmitAnswer = (e) => {
         const selectedAnswer = e.target.innerText
+
+        setAttempts(attempts + 1)
+
+        const [...buttons] = document.getElementsByClassName('answer-button')
+        buttons.forEach(button => {
+            console.log(button)
+            if (button.id !== e.target.id && button.innerText !== currentQuestion.text) {
+                button.style.backgroundColor = '#376937'
+                button.style.color = '#eded37'
+                button.style.filter = 'blur(2px)'
+            }
+            else if (button.innerText === currentQuestion.text) {
+                button.style.backgroundColor = '#693769'
+                button.style.color = '#69ed37'
+                button.style.transform = 'scale(1.3)'
+                button.style.zIndex = '10'
+                button.style.borderColor = '#69ed37'
+                button.style.boxShadow = '0px 3px 12px 8px #373737'
+            }
+            button.style.pointerEvents = 'none'
+        })
+
         console.log('%cSelection:', 'color:red', selectedAnswer)
         if (selectedAnswer === currentQuestion.text) {
+            setCorrectAnswers(correctAnswers + 1)
+            e.target.style.backgroundColor = '#3769ed'
+            e.target.style.color = '#ededed'
             console.log('%cResult:', 'color:blue', 'CORRECT')
         }
         else {
+            e.target.style.backgroundColor = '#ed6937'
+            e.target.style.color = '#ededed'
             console.log('%cResult:', 'color:blue', 'Wrong Answer')
         }
+        setDoContinue(true)
+        setIsPLaying(false)
     }
 
     return (
@@ -76,10 +121,26 @@ const NumberGame = () => {
             <div className="instruction">Your Number Is:</div>
             <div className="number-cell">{number}</div>
             <div className="instruction">Which of these facts is about that number?</div>
+            {
+                doContinue && (
+                    <div className='continue-block' onClick={handleContinue}>
+                        Continue?
+                    </div>
+                )
+            }
             <div className="answer-block">
-                { currentQuestion?.grid?.map((answer, index) => {
+            {
+                currentQuestion?.grid?.map((answer, index) => {
                     return <div className='answer-button' onClick={handleSubmitAnswer} id ={`answer${index}`} key={`answer${index}`}>{answer}</div>
-                }) }
+                })
+            }
+            </div>
+            <div className='score-box'>
+                <span className='score-static'>You've gotten</span>
+                <span className='score-data'>{correctAnswers}</span>
+                <span className='score-static'>out of</span>
+                <span className='score-data'>{attempts}</span>
+                <span className='score-static'>questions correct so far!</span>
             </div>
         </Fragment>
     )
