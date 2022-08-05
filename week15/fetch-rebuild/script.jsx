@@ -10,7 +10,7 @@ const getNumbers = async (number) => {
     return await data
 }
 
-const createNewQuestion = async (setNumber, answers, setAnswers, setCurrentQuestion) => {
+const createNewQuestion = async (setNumber, answers, setAnswers, setCurrentQuestion, setIsLoading) => {
     const answerArray = []
     let answerHolder
     for (let i=1; i <= 4; i++) {
@@ -49,12 +49,14 @@ const createNewQuestion = async (setNumber, answers, setAnswers, setCurrentQuest
     }
     const gridData = {number: answerHolder, text: answerArray[0], grid: createAnswerGrid(answerArray)}
     setCurrentQuestion(gridData)
+    setIsLoading(false)
 }
 
 const NumberGame = () => {
     const [number, setNumber] = useState(null)
     const [answers, setAnswers] = useState([])
     const [attempts, setAttempts] = useState(0)
+    const [isLoading, setIsLoading] = useState(false)
     const [correctAnswers, setCorrectAnswers] = useState(0)
     const [currentQuestion, setCurrentQuestion] = useState([])
     const [doContinue, setDoContinue] = useState(null)
@@ -62,7 +64,8 @@ const NumberGame = () => {
     
     useEffect(() => {
         if (isPlaying === true) {
-            createNewQuestion(setNumber, answers, setAnswers, setCurrentQuestion)
+            setIsLoading(true)
+            createNewQuestion(setNumber, answers, setAnswers, setCurrentQuestion, setIsLoading)
         }
     }, [isPlaying])
 
@@ -118,30 +121,36 @@ const NumberGame = () => {
 
     return (
         <Fragment>
-            <div className="instruction">Your Number Is:</div>
-            <div className="number-cell">{number}</div>
-            <div className="instruction">Which of these facts is about that number?</div>
             {
-                doContinue && (
-                    <div className='continue-block' onClick={handleContinue}>
-                        Continue?
-                    </div>
-                )
+                isLoading ? <div className="loading">Loading</div> : 
+                    <Fragment>
+                        <div className="instruction">Your Number Is:</div>
+                        <div className="number-cell">{number}</div>
+                        <div className="instruction">Which of these facts is about that number?</div>
+                        {
+                            doContinue && (
+                                <div className='continue-block' onClick={handleContinue}>
+                                    Continue?
+                                </div>
+                            )
+                        }
+                        <div className="answer-block">
+                        {
+                            currentQuestion?.grid?.map((answer, index) => {
+                                return <div className='answer-button' onClick={handleSubmitAnswer} id ={`answer${index}`} key={`answer${index}`}>{answer}</div>
+                            })
+                        }
+                        </div>
+                        <div className='score-box'>
+                            <span className='score-static'>You've gotten</span>
+                            <span className='score-data'>{correctAnswers}</span>
+                            <span className='score-static'>out of</span>
+                            <span className='score-data'>{attempts}</span>
+                            <span className='score-static'> correct so far!</span>
+                        </div>
+                    </Fragment> 
+                
             }
-            <div className="answer-block">
-            {
-                currentQuestion?.grid?.map((answer, index) => {
-                    return <div className='answer-button' onClick={handleSubmitAnswer} id ={`answer${index}`} key={`answer${index}`}>{answer}</div>
-                })
-            }
-            </div>
-            <div className='score-box'>
-                <span className='score-static'>You've gotten</span>
-                <span className='score-data'>{correctAnswers}</span>
-                <span className='score-static'>out of</span>
-                <span className='score-data'>{attempts}</span>
-                <span className='score-static'>questions correct so far!</span>
-            </div>
         </Fragment>
     )
 }

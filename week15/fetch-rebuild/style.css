@@ -119,15 +119,37 @@ body {
 
 .score-static {
     font-size: 1.1rem;
+    font-style: italic;
 }
 
 .score-data {
     font-size: 1.7rem;
     font-weight: 900;
-    color:#ed6737;
-    text-shadow: 2px 2px 0px #373737;
+    color:#ed3700;
+    text-shadow: 1px 1px 2px #373737;
 }
 
+.loading {
+    width: 300px;
+    height: 500px;
+    color: red;
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: throb .4s infinite;
+}
+
+@keyframes throb {
+    0%, 100% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(.3);
+    }
+}
 
 .number-cell {
     color:#ededed;
