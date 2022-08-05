@@ -68,6 +68,7 @@ body {
 
 .answer-button:hover {
     cursor: pointer;
+    color: #ededed;
     background-color: rgba(255,100,255,.8);
 }
 

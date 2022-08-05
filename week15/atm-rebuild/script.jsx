@@ -140,7 +140,7 @@ const MainMenu = ({screen, balance, setBalance}) => {
     return (
         <div className='menu'>
             <span className="menu-title">Welcome! Select a function to continue.</span>
-            <button className="menu-button" id='withdraw' onClick={handleMenuSelection}>Withdraw</button>
+            <button disabled={!balance} className="menu-button" id='withdraw' onClick={handleMenuSelection}>Withdraw</button>
             <button className="menu-button" id='deposit' onClick={handleMenuSelection}>Deposit</button>
             <button className="menu-button" id='balance' onClick={handleMenuSelection}>Check Balance</button>
             <button className="menu-button" onClick={handleMenuSelection}>Exit</button>

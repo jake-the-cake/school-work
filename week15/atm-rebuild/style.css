@@ -123,8 +123,8 @@ button {
 }
 
 button:disabled {
-    background-color: #373737;
-    cursor: not-allowed;
+    background-color: #373737 !important;
+    cursor: not-allowed !important;
 }
 
 .error {
