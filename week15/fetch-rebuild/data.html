@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  Get Data...
+  <script>
+    const getData = async () => {
+      const dataArray = []
+      const baseUrl = 'http://numbersapi.com/'
+      for (let i=0; i < 100; i++) {
+        await dataArray.push(
+          await fetch(`${baseUrl}${i}/trivia`).then(data => {return data.text()}).catch(e => console.error(e))
+        )
+      }
+      console.log(dataArray)
+      const dataFile = new File(dataArray, 'data.json')
+      console.log(dataFile)
+    }
+    getData()
+  </script>
+</body>
+</html>

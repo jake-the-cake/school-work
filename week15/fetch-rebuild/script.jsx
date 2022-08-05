@@ -2,7 +2,11 @@ const { Fragment, useState, useEffect } = React
 
 const getNumbers = async (number) => {
     const url = `http://numbersapi.com/${number}/trivia`
-    const data = await axios(url).then((data) => data)
+    const data = await axios(url).then((data) => data).catch(err => {
+        console.error('AXIOS ERROR @ getNumbers(): %c' + err.message,'color: green; font-weight: 700')
+        const result = {data: numberFacts[number]}
+        return result
+    })
     return await data
 }
 
@@ -12,7 +16,7 @@ const createNewQuestion = async (setNumber, answers, setAnswers, setCurrentQuest
     for (let i=1; i <= 4; i++) {
         let isValidating = true
         while (isValidating === true) {
-            const data = await getNumbers(parseInt(Math.random() * 101)).then(({data}) => data)
+            const data = await getNumbers(parseInt(Math.random() * 100)).then(({data}) => data)
             const splitData = await data.split(' ')
             const textFromData = splitData.slice(2).join(' ')
             const formattedTextFromData = textFromData[0].toUpperCase() + textFromData.slice(1)
