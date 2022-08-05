@@ -1,7 +1,7 @@
 const { Fragment, useState, useEffect } = React
 
 const getNumbers = async (number) => {
-    const url = `https://numbersapi.com/${number}/trivia`
+    const url = `http://numbersapi.com/${number}/trivia`
     const data = await axios(url).then((data) => data)
     return await data
 }
