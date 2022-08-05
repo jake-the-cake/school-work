@@ -56,7 +56,7 @@ const NumberGame = () => {
     const [number, setNumber] = useState(null)
     const [answers, setAnswers] = useState([])
     const [attempts, setAttempts] = useState(0)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [correctAnswers, setCorrectAnswers] = useState(0)
     const [currentQuestion, setCurrentQuestion] = useState([])
     const [doContinue, setDoContinue] = useState(null)
