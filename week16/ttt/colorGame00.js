@@ -41,6 +41,9 @@ const checkForWinner = (choices, setStatus) => {
     if (arr.length === 3) setTimeout(() => {
       setStatus('Winner')
       document.getElementById('root').style.pointerEvents = 'none'
+      arr.forEach(item => {
+        document.getElementById(item).style.background = 'yellow'
+      })
     }, 10)
   })
 }
