@@ -1,0 +1,21 @@
+  <script >
+    const callback = (e) => {
+      console.log(e);
+      console.log("location Hash Changed");
+
+      // location object
+      console.log(location.href);      
+      console.log(location.pathname);  
+      console.log(location.hash);      
+    }
+    window.addEventListener('hashchange', callback);    
+  </script>
+
+  <style> a{ font: 2em Arial, sans-serif;} </style>
+
+  <a href="#about">About</a><br />
+  <a href="#mission">Mission</a><br />
+  <a href="#history">History</a><br />
+
+
+  
