@@ -28,7 +28,7 @@ body {
 
 }
 
-a {
+link {
   color: #af0;
   font-size: .9rem;
   font-weight: 600;
@@ -37,7 +37,7 @@ a {
   margin: 0px;
 }
 
-a:hover {
+link:hover {
   background-color: #adadfa;
   color: #373769;
 }
