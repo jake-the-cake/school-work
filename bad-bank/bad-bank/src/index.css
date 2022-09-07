@@ -5,7 +5,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #161616;
+  background-color: #373769;
 }
 
 code {
@@ -35,9 +35,7 @@ code {
 .logo-text {
   font-size: 1.4rem;
   font-weight: 700;
-  background-color: transparent !important;
   margin-left: .5rem;
-
 }
 
 .link {
@@ -47,9 +45,43 @@ code {
   text-decoration: none;
   padding: .5rem;
   margin: 0px;
+  transition: color .4s, background-color .3s;
 }
 
 .link:hover {
   background-color: #adadfa;
   color: #373769;
+}
+
+.page-title {
+  text-shadow: 2px 2px 4px #373769;
+}
+
+.page-subtitle {
+  border-top: 1px dashed #37be69;
+  padding: .5rem 2rem;
+  font-size: 1.2rem;
+}
+
+.content {
+  background-color: white;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  border-radius: .5rem;
+  border: 2px solid #373769;
+  overflow: hidden;
+}
+
+.homepage-container {
+  background: url(./images/bank.jpg);
+  background-size: cover;
+  width: 100%;
+  min-height: 300px;
+  aspect-ratio: 1;
+  background-position: center;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
 }
