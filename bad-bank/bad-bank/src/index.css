@@ -77,11 +77,19 @@ code {
   background: url(./images/bank.jpg);
   background-size: cover;
   width: 100%;
-  min-height: 300px;
+  min-height: 75vw;
   aspect-ratio: 1;
   background-position: center;
   padding: 1rem;
   display: flex;
-  justify-content: center;
   font-weight: 700;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem
+}
+
+.home-message {
+  color: #373769;
+  border-bottom: 1px dashed #373769;
+  padding: 0px 2rem .5rem;
 }

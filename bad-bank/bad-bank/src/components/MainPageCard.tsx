@@ -7,7 +7,6 @@ interface MainPageCardProps {
 }
 
 export const MainPageCard = ({content, title, subtitle}: MainPageCardProps) => {
-  console.log(content)
   return (
     <div className="card bg-light m-auto mt-2 mb-3 align-items-center" style={{width: '90vw'}}>
       <>

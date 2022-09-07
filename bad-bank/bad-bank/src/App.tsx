@@ -1,19 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Home } from './pages/Home';
+import React, { createContext } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Navbar } from './components/Navbar'
+import { CreateAccount } from './pages/CreateAccount'
+import { Home } from './pages/Home'
 
-function App() {
+export const UserContext: any = createContext(null)
+
+const App = () => {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar />
-      </div>
-      <Routes>
-        <Route path='/' element={<Home />} />
-      </Routes>
+      <UserContext.Provider value={{users:[]}}>
+        <div>
+          <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/createaccount' element={<CreateAccount />} />
+        </Routes>
+        </div>
+      </UserContext.Provider>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
