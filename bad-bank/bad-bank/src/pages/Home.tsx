@@ -31,23 +31,22 @@ export const Home = () => {
                     <p className="card-text">Current balance is ${activeUser[0].balance}</p>
                     <p className="card-text">Member since 2022</p>
                     <div className="d-flex gap-3">
-                      <a href="" className="btn btn-primary">Make Deposit</a>
-                      <a href="#" className="btn btn-primary">Withdraw Money</a>
+                      <Link to="./deposit" className="btn btn-primary">Make Deposit</Link>
+                      <Link to='./withdraw' className="btn btn-primary">Withdraw Money</Link>
                     </div>
-                    <a href="" className="mt-3 btn btn-primary" style={{width:'100%'}}>Transaction History</a>
+                    <Link to='./alldata' className="mt-3 btn btn-primary" style={{width:'100%'}}>Transaction History</Link>
                   </div>
                 </div>
                   <div className="d-flex gap-3">
-                    <a href="" className="btn btn-warning">Log Out</a>
-                    <a href="" className="btn btn-danger">Delete Account</a>
+                    <Link to="./logout" className="btn btn-warning">Log Out</Link>
+                    <Link to="./deleteaccount" className="btn btn-danger">Delete Account</Link>
                   </div>
-
               </>)
-              : (<>
+              : (<div className="d-flex gap-3 align-items-center">
                 <Link to='./login'><button className="btn btn-success">Login</button></Link>
                 <span>OR</span>
                 <Link to='./createaccount'><button className="btn btn-outline-success">Create A New Account</button></Link>
-              </>)
+              </div>)
             }
           </div>
         </div>

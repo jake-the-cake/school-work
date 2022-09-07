@@ -16,9 +16,9 @@ export const CreateAccount = () => {
     })
     ctx.users.push(
       {
-        name: nodes[0].value,
-        password: nodes[1].value,
-        email: nodes[2].value,
+        name: nodes[1].value,
+        password: nodes[3].value,
+        email: nodes[5].value,
         balance: 100,
         isLoggedIn: true
       }
@@ -32,9 +32,12 @@ export const CreateAccount = () => {
       subtitle="** All fields are required."
       content={
         <form className='form-group d-flex flex-column p-3'style={{gap:'1rem'}}  action="./" onSubmit={handleCreateAccount}>
-          <input className="form-control" placeholder='name' name='name' type="text" />
-          <input className="form-control" placeholder='password' name='password' type="text" />
-          <input className="form-control" placeholder='email' name='email' type="text" />
+          <label htmlFor='name'>Name</label>
+          <input className="form-control" placeholder='Enter Name' name='name' type="text" />
+          <label htmlFor='password'>Password</label>
+          <input className="form-control" placeholder='Enter Password' name='password' type="text" />
+          <label htmlFor='email'>Email Address</label>
+          <input className="form-control" placeholder='Enter email' name='email' type="text" />
           <button className="btn btn-primary m-auto">Create</button>
         </form>
       }

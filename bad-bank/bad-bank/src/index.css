@@ -103,3 +103,12 @@ code {
 .trans-card {
   background-color: rgb(255 255 255 / .7) !important;
 }
+
+label {
+  margin-bottom: -1rem;
+}
+
+input {
+  background-color: #adadfa !important;
+  border: 2px solid #373769 !important;
+}
