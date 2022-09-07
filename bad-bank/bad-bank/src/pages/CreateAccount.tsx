@@ -24,7 +24,6 @@ export const CreateAccount = () => {
       }
     )
     navigation('/', {replace: true})
-    console.log(ctx.users)
   }
 
   return (

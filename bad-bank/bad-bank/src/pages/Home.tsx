@@ -6,7 +6,6 @@ import { MainPageCard } from "../components/MainPageCard"
 export const Home = () => {
   const ctx: any = useContext(UserContext)
   const activeUser = ctx.users.filter((user:any) => user.isLoggedIn === true)
-  console.log(activeUser[0])
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'
@@ -20,10 +19,36 @@ export const Home = () => {
               : 'Let\'s get started'
             }
           </div>
-          <div className="home-controls">
-            <Link to='./login'><button className="btn btn-success">Login</button></Link>
-            <span className="me-2 ms-2">OR</span>
-            <Link to='./createaccount'><button className="btn btn-outline-success">Create A New Account</button></Link>
+          <div className="home-controls flex-column">
+            {
+              activeUser[0]
+              ? (<>
+                <div className="card m-auto trans-card" style={{minWidth:'70%'}}>
+                  <div className="card-header bg-success text-light">
+                    Account Overview
+                  </div>
+                  <div className="card-body text-center">
+                    <p className="card-text">Current balance is ${activeUser[0].balance}</p>
+                    <p className="card-text">Member since 2022</p>
+                    <div className="d-flex gap-3">
+                      <a href="" className="btn btn-primary">Make Deposit</a>
+                      <a href="#" className="btn btn-primary">Withdraw Money</a>
+                    </div>
+                    <a href="" className="mt-3 btn btn-primary" style={{width:'100%'}}>Transaction History</a>
+                  </div>
+                </div>
+                  <div className="d-flex gap-3">
+                    <a href="" className="btn btn-warning">Log Out</a>
+                    <a href="" className="btn btn-danger">Delete Account</a>
+                  </div>
+
+              </>)
+              : (<>
+                <Link to='./login'><button className="btn btn-success">Login</button></Link>
+                <span>OR</span>
+                <Link to='./createaccount'><button className="btn btn-outline-success">Create A New Account</button></Link>
+              </>)
+            }
           </div>
         </div>
     }/>

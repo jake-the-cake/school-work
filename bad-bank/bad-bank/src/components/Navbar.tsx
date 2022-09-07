@@ -2,13 +2,13 @@ import { Link } from "react-router-dom"
 
 export const Navbar = () => {
   const links = [
-    'Create Account',
-    'Login',
-    'Deposit',
-    'Withdraw',
-    'Balance',
-    'All Data'
-  ]
+      'Create Account',
+      'Login',
+      'Deposit',
+      'Withdraw',
+      'Balance',
+      'All Data'
+    ]
 
   return (
     <nav className='navbar bg-primary d-flex m-0'>
