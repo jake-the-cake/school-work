@@ -6,7 +6,6 @@ import { MainPageCard } from "../components/MainPageCard"
 export const Home = () => {
   const ctx: any = useContext(UserContext)
   const activeUser = ctx.users.filter((user:any) => user.isLoggedIn === true)
-  console.log(ctx)
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'
@@ -15,14 +14,14 @@ export const Home = () => {
         <div className="homepage-container">
           <div className="home-message">
             {
-              activeUser[0]
+              ctx.activeUser
               ? `Welcome ${activeUser[0].name}`
               : 'Let\'s get started'
             }
           </div>
           <div className="home-controls flex-column">
             {
-              activeUser[0]
+              ctx.activeUser
               ? (<>
                 <div className="card m-auto trans-card" style={{minWidth:'70%'}}>
                   <div className="card-header bg-success text-light">

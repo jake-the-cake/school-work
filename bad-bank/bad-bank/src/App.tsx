@@ -10,7 +10,7 @@ export const UserContext: any = createContext(null)
 const App = () => {
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{users:[], activeUser:undefined}}>
+      <UserContext.Provider value={{users:[], activeUser:false}}>
         <div>
           <Navbar />
         <Routes>

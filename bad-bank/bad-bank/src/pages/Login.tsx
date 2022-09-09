@@ -10,10 +10,10 @@ export const Login = () => {
   
   const handleLogin = (event: any) => {
     event.preventDefault()
-    ctx.users.forEach((user: any) => {
-      user.isLoggedIn = false
-    })
-    ctx.activeUser = event.target.children[1].value
+    const providedUserName = ctx.users.filter((user:any) => user.name === event.target.children[1].value)[0]
+    if (providedUserName && providedUserName.password === event.target.children[3].value) {
+      ctx.activeUser = providedUserName
+    }
     navigation('/', {replace: true})
   }
 
