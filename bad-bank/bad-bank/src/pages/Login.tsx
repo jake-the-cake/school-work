@@ -13,6 +13,7 @@ export const Login = () => {
     ctx.users.forEach((user: any) => {
       user.isLoggedIn = false
     })
+    ctx.activeUser = event.target.children[1].value
     navigation('/', {replace: true})
   }
 

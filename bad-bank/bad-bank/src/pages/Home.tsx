@@ -6,6 +6,7 @@ import { MainPageCard } from "../components/MainPageCard"
 export const Home = () => {
   const ctx: any = useContext(UserContext)
   const activeUser = ctx.users.filter((user:any) => user.isLoggedIn === true)
+  console.log(ctx)
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'
