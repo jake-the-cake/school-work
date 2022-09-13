@@ -5,7 +5,7 @@ import { MainPageCard } from "../components/MainPageCard"
 
 export const Home = () => {
   const ctx: any = useContext(UserContext)
-  const activeUser = ctx.users.filter((user:any) => user.isLoggedIn === true)
+  console.log(ctx)
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'
@@ -14,21 +14,21 @@ export const Home = () => {
         <div className="homepage-container">
           <div className="home-message">
             {
-              ctx.activeUser
-              ? `Welcome ${activeUser[0].name}`
+              ctx.state.activeUser
+              ? `Welcome ${ctx.state.activeUser.name}`
               : 'Let\'s get started'
             }
           </div>
           <div className="home-controls flex-column">
             {
-              ctx.activeUser
+              ctx.state.activeUser
               ? (<>
                 <div className="card m-auto trans-card" style={{minWidth:'70%'}}>
                   <div className="card-header bg-success text-light">
                     Account Overview
                   </div>
                   <div className="card-body text-center">
-                    <p className="card-text">Current balance is ${activeUser[0].balance}</p>
+                    <p className="card-text">Current balance is ${ctx.state.activeUser.balance}</p>
                     <p className="card-text">Member since 2022</p>
                     <div className="d-flex gap-3">
                       <Link to="./deposit" className="btn btn-primary">Make Deposit</Link>
@@ -38,7 +38,7 @@ export const Home = () => {
                   </div>
                 </div>
                   <div className="d-flex gap-3">
-                    <Link to="./logout" className="btn btn-warning">Log Out</Link>
+                    <Link to="./" className="btn btn-warning" onClick={() => ctx.dispatch({type:'failure'})}>Log Out</Link>
                     <Link to="./deleteaccount" className="btn btn-danger">Delete Account</Link>
                   </div>
               </>)

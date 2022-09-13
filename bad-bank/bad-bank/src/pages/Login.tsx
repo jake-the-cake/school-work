@@ -10,9 +10,9 @@ export const Login = () => {
   
   const handleLogin = (event: any) => {
     event.preventDefault()
-    const providedUserName = ctx.users.filter((user:any) => user.name === event.target.children[1].value)[0]
+    const providedUserName = ctx.state.users.filter((user:any) => user.name === event.target.children[1].value)[0]
     if (providedUserName && providedUserName.password === event.target.children[3].value) {
-      ctx.activeUser = providedUserName
+      ctx.state.activeUser = providedUserName
       ctx.dispatch({type: 'success'})
     }
     navigation('/', {replace: true})

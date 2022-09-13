@@ -11,10 +11,10 @@ export const CreateAccount = () => {
   const handleCreateAccount = (event: any) => {
     event.preventDefault()
     const nodes = event.target.childNodes
-    ctx.users.forEach((user:any) => {
+    ctx.state.users.forEach((user:any) => {
       user.isLoggedIn = false
     })
-    ctx.users.push(
+    ctx.state.users.push(
       {
         name: nodes[1].value,
         password: nodes[3].value,

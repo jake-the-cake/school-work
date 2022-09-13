@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { CreateAccount } from './pages/CreateAccount'
@@ -8,9 +8,9 @@ import { Login } from './pages/Login'
 export const reducer = (state: any, action: any) => {
   switch (action.type) {
     case 'success':
-      return { activeUser: true };
+      return { activeUser: state.activeUser, users:state.users };
     case 'failure':
-      return { activeUser: false };
+      return { activeUser: false, users:state.users };
     default:
       return state;
   }
@@ -19,9 +19,9 @@ export const reducer = (state: any, action: any) => {
 export const UserContext: any = createContext(null)
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, { activeUser: false });
-
-  const contextValue = { users:[], state, dispatch };
+  console.log('render')
+  const [state, dispatch] = useReducer(reducer, { users: [], activeUser: false });
+  const contextValue = { state, dispatch };
   return (
     <BrowserRouter>
       <UserContext.Provider value={contextValue}>
