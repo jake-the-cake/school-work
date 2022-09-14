@@ -1,16 +1,20 @@
-import React, { createContext, useContext, useReducer } from 'react'
+import React, { createContext, useReducer } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
+import { AllData } from './pages/AllData'
 import { CreateAccount } from './pages/CreateAccount'
+import { Deposit } from './pages/Deposit'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
+import { Withdraw } from './pages/Withdraw'
 
 export const reducer = (state: any, action: any) => {
+  const { users, activeUser } = state
   switch (action.type) {
     case 'success':
-      return { activeUser: state.activeUser, users:state.users };
+      return { activeUser: activeUser, users: users };
     case 'failure':
-      return { activeUser: false, users:state.users };
+      return { activeUser: false, users: users };
     default:
       return state;
   }
@@ -19,9 +23,9 @@ export const reducer = (state: any, action: any) => {
 export const UserContext: any = createContext(null)
 
 const App = () => {
-  console.log('render')
   const [state, dispatch] = useReducer(reducer, { users: [], activeUser: false });
   const contextValue = { state, dispatch };
+
   return (
     <BrowserRouter>
       <UserContext.Provider value={contextValue}>
@@ -30,6 +34,9 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/createaccount' element={<CreateAccount />} />
+          <Route path='/alldata' element={<AllData />} />
+          <Route path='/withdraw' element={<Withdraw />} />
+          <Route path='/deposit' element={<Deposit />} />
           <Route path='/login' element={<Login />} />
         </Routes>
         </div>

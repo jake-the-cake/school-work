@@ -8,6 +8,10 @@ export const CreateAccount = () => {
   const ctx: any = useContext(UserContext)
   const navigation = useNavigate()
   
+  const timestamp = Date.now()
+  const readableTimestamp = new Date(timestamp).toLocaleDateString()
+  const accountBonus = 50
+
   const handleCreateAccount = (event: any) => {
     event.preventDefault()
     const nodes = event.target.childNodes
@@ -19,8 +23,14 @@ export const CreateAccount = () => {
         name: nodes[1].value,
         password: nodes[3].value,
         email: nodes[5].value,
-        balance: 100,
-        isLoggedIn: true
+        balance: accountBonus,
+        transactions: [
+          {
+            date: readableTimestamp,
+            message:`$${accountBonus} new account bonus applied.`,
+            runningBalance: accountBonus
+          }
+        ]
       }
     )
     navigation('/', {replace: true})

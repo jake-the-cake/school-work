@@ -5,7 +5,7 @@ import { MainPageCard } from "../components/MainPageCard"
 
 export const Home = () => {
   const ctx: any = useContext(UserContext)
-  console.log(ctx)
+  console.log(ctx.state.users)
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'
@@ -39,7 +39,18 @@ export const Home = () => {
                 </div>
                   <div className="d-flex gap-3">
                     <Link to="./" className="btn btn-warning" onClick={() => ctx.dispatch({type:'failure'})}>Log Out</Link>
-                    <Link to="./deleteaccount" className="btn btn-danger">Delete Account</Link>
+                    <Link
+                      to="./"
+                      className="btn btn-danger"
+                      onClick={ () => {
+                        const { users, activeUser } = ctx.state
+                        users.forEach((user: any, index: number) => {
+                          if (user.name === activeUser.name) {
+                            users.splice(index, 1)
+                            ctx.dispatch({type:'failure'})
+                          }
+                        })
+                      }}>Delete Account</Link>
                   </div>
               </>)
               : (<div className="d-flex gap-3 align-items-center">

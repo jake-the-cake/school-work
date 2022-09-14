@@ -24,7 +24,7 @@ export const Navbar = () => {
 
   // function to return navbar links based on login status
   const logFn: ReturnLoginStatusProps = (loginStatus) => {
-    const linkArray = loginStatus ? links.slice(2) : links
+    const linkArray = loginStatus ? links.slice(2) : links.slice(0,2)
     return (
       linkArray.map(link => <Link className='link' key={link.replace(' ', '').toLowerCase()} to={`./${link.replace(' ', '').toLowerCase()}`}>{link}</Link>)
     )

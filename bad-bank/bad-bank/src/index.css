@@ -112,3 +112,12 @@ input {
   background-color: #adadfa !important;
   border: 2px solid #373769 !important;
 }
+
+.table-head {
+  background-color: #373769;
+  color: #ededed;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: .5rem;
+}

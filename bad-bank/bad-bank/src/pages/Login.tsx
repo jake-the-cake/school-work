@@ -14,8 +14,11 @@ export const Login = () => {
     if (providedUserName && providedUserName.password === event.target.children[3].value) {
       ctx.state.activeUser = providedUserName
       ctx.dispatch({type: 'success'})
+      navigation('/', {replace: true})
     }
-    navigation('/', {replace: true})
+    else {
+      console.log('no good')
+    }
   }
 
   return (
