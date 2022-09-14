@@ -46,6 +46,7 @@ code {
   padding: .5rem;
   margin: 0px;
   transition: color .4s, background-color .3s;
+  cursor: pointer;
 }
 
 .link:hover {
@@ -120,4 +121,6 @@ input {
   font-weight: 700;
   font-size: 1.1rem;
   padding: .5rem;
+  border-radius: .5rem;
+  text-transform: uppercase;
 }

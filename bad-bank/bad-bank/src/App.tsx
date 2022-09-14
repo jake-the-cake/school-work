@@ -6,6 +6,7 @@ import { CreateAccount } from './pages/CreateAccount'
 import { Deposit } from './pages/Deposit'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
+import { Success } from './pages/Success'
 import { Withdraw } from './pages/Withdraw'
 
 export const reducer = (state: any, action: any) => {
@@ -35,8 +36,14 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/createaccount' element={<CreateAccount />} />
           <Route path='/alldata' element={<AllData />} />
-          <Route path='/withdraw' element={<Withdraw />} />
-          <Route path='/deposit' element={<Deposit />} />
+          <Route path='withdraw'>
+            <Route path='' element={<Withdraw />} />
+            <Route path='success'  element={<Success type='withdrawal' />}/>
+          </Route>
+          <Route path='deposit'>
+            <Route path='' element={<Deposit />} />
+            <Route path='success' element={<Success type='deposit' />} />
+          </Route>
           <Route path='/login' element={<Login />} />
         </Routes>
         </div>

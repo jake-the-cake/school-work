@@ -28,7 +28,7 @@ export const Home = () => {
                     Account Overview
                   </div>
                   <div className="card-body text-center">
-                    <p className="card-text">Current balance is ${ctx.state.activeUser.balance}</p>
+                    <p className="card-text">Current balance is ${ctx.state.activeUser.balance.toFixed(2)}</p>
                     <p className="card-text">Member since 2022</p>
                     <div className="d-flex gap-3">
                       <Link to="./deposit" className="btn btn-primary">Make Deposit</Link>

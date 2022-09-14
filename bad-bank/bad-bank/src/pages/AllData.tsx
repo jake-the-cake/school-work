@@ -30,7 +30,7 @@ export const AllData = () => {
               )
             })
           }
-          <div className="d-flex w-100 justify-content-between">
+          <div className="d-flex w-100 justify-content-between gap-2">
           <span className='table-head' style={{flex:'1'}}>Date</span>
           <span className='table-head' style={{flex:'3'}}>Action</span>
           <span className='table-head' style={{flex:'1'}}>Balance</span>

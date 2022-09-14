@@ -1,22 +1,25 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import { UserContext } from "../App"
 import { MainPageCard } from "../components/MainPageCard"
+
 
 export const Deposit = () => {
   const { state }: any = useContext(UserContext)
   const { activeUser } = state
+  const navigate = useNavigate()
   
   const handleWithdraw: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
     const readableTimestamp = new Date(Date.now()).toLocaleDateString()
     const value = Number(((event.target as HTMLFormElement).children[1] as HTMLInputElement).value)
     activeUser.balance += value
-    console.log(activeUser)
     activeUser.transactions.push({
       date: readableTimestamp,
       message: `Deposit in the amount of $${value.toFixed(2)}`,
       runningBalance: activeUser.balance
     })
+    navigate('./success', {replace: true})
   }
 
   return (

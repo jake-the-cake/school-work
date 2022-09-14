@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { UserContext } from "../App"
 
 interface ReturnLoginStatusProps {
@@ -18,7 +18,6 @@ export const Navbar = () => {
       'Login',
       'Deposit',
       'Withdraw',
-      'Balance',
       'All Data'
     ]
 
@@ -30,6 +29,8 @@ export const Navbar = () => {
     )
   }
 
+  const navigate = useNavigate()
+
   return (
     <nav className='navbar bg-primary d-flex m-0'>
       <div className='logo'>
@@ -37,7 +38,10 @@ export const Navbar = () => {
       </div>
       <>
       {
-        ctx.state.activeUser ? logFn(true) : logFn(false)
+        ctx.state.activeUser ? <>{logFn(true)}<div className="link" onClick={()=>{
+          ctx.dispatch({type:'failure'})
+          navigate('./', {replace: true})
+      }}>Log Out</div></> : logFn(false)
       }
       </>
     </nav>
