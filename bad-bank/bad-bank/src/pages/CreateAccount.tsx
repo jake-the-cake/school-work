@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom"
 import { UserContext } from "../App"
 import { MainPageCard } from "../components/MainPageCard"
 
-const userInput: HTMLElement | null = document.getElementById('username')
-const passwordInput: HTMLElement | null = document.getElementById('password')
-const emailInput: HTMLElement | null = document.getElementById('email')
+
+/*  ::: Validation Station :::  */
+const validateUsername = ( value: string ) => {
+  console.log(`value: ${ value }`)
+  return value
+}
+
+
 
 export const CreateAccount = () => {
-  const ctx: any = useContext(UserContext)
+  const { state }: any = useContext(UserContext)
   const navigation = useNavigate()
   
   const [userValue, setUserValue] = useState('')
@@ -21,20 +26,16 @@ export const CreateAccount = () => {
 
   const handleCreateAccount = (event: any) => {
     event.preventDefault()
-    const nodes = event.target.childNodes
-    ctx.state.users.forEach((user:any) => {
-      user.isLoggedIn = false
-    })
-    ctx.state.users.push(
+    state.users.push(
       {
-        name: nodes[1].value,
-        password: nodes[3].value,
-        email: nodes[5].value,
+        name: validateUsername( userValue ),
+        password: passwordValue,
+        email: emailValue,
         balance: accountBonus,
         transactions: [
           {
             date: readableTimestamp,
-            message:`$${accountBonus} new account bonus applied.`,
+            message:`$${ accountBonus } new account bonus applied.`,
             runningBalance: accountBonus
           }
         ]
@@ -50,11 +51,11 @@ export const CreateAccount = () => {
     callback(event.target.value)
   }
 
-  console.log({
-    username: userValue,
-    password: passwordValue,
-    email: emailValue
-  })
+  // console.log({
+  //   username: userValue,
+  //   password: passwordValue,
+  //   email: emailValue
+  // })
 
   return (
     <MainPageCard
