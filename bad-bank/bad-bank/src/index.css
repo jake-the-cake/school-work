@@ -124,3 +124,12 @@ input {
   border-radius: .5rem;
   text-transform: uppercase;
 }
+
+.error {
+  margin: auto;
+  font-style: italic;
+  color: #ed3737;
+  font-size: .8rem;
+  margin-top: -.6rem;
+  font-weight: 700;
+}

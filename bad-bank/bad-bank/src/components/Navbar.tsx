@@ -37,6 +37,7 @@ export const Navbar = () => {
         <Link to="./" className='text-light logo-text text-decoration-none'>BaddestBank</Link>
       </div>
       <>
+      <Link className="link" to='/'>Home</Link>
       {
         ctx.state.activeUser ? <>{logFn(true)}<div className="link" onClick={()=>{
           ctx.dispatch({type:'failure'})

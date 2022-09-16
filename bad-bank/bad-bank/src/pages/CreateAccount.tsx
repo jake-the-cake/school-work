@@ -16,10 +16,13 @@ const validateUsername = ( value: string ) => {
 
 const validatePassword = ( value: string ) => {
   if (value.length < 8) return { error: 'Password is too short.'}
+  let isValid: boolean = true
+
   return { error: undefined, data: value }
 }
 
 const validateEmail = ( value: string ) => {
+  if (value.length < 1) return { error: 'Email address is required.'}
   return { error: undefined, data: value }
 }
 
