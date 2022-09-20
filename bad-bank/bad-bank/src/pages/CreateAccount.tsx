@@ -5,7 +5,7 @@ import { MainPageCard } from "../components/MainPageCard"
 
 /*  ::: Validation Station :::  */
 const validateUsername = ( value: string ) => {
-  if (value.length < 5) return { error: 'Username is too short.'}
+  if (value.length < 1) return { error: 'Username is too short.'}
   let isValid: boolean = true
   value.split('').forEach((character: string) => {
     if (!/^[a-zA-Z]/.test(character)) isValid = false
@@ -95,12 +95,13 @@ export const CreateAccount = () => {
       content={      
         <form
           className='form-group d-flex flex-column p-3'
+          name='form'
           style={{gap:'1rem'}}
           action="./"
           onSubmit={handleCreateAccount}
         >
           
-          <label htmlFor='name'>
+          <label id="namelabel" htmlFor='usernname'>
             Name
           </label>
           <input
@@ -110,6 +111,7 @@ export const CreateAccount = () => {
             placeholder='Enter Name'
             name='name'
             type="text"
+            aria-labelledby="namelabel"
           />
           { errors[0] && displayError(errors[0])}
           

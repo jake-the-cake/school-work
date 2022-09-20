@@ -34,7 +34,7 @@ export const Home = () => {
                       <Link to="./deposit" className="btn btn-primary">Make Deposit</Link>
                       <Link to='./withdraw' className="btn btn-primary">Withdraw Money</Link>
                     </div>
-                    <Link to='./alldata' className="mt-3 btn btn-primary" style={{width:'100%'}}>Transaction History</Link>
+                    <Link to='./transactions' className="mt-3 btn btn-primary" style={{width:'100%'}}>Transaction History</Link>
                   </div>
                 </div>
                   <div className="d-flex gap-3">

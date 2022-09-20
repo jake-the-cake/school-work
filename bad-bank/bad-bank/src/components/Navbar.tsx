@@ -18,7 +18,7 @@ export const Navbar = () => {
       'Login',
       'Deposit',
       'Withdraw',
-      'All Data'
+      'Transactions'
     ]
 
   // function to return navbar links based on login status
@@ -38,6 +38,7 @@ export const Navbar = () => {
       </div>
       <>
       <Link className="link" to='/'>Home</Link>
+      <Link className="link" to='/alldata'>All Data</Link>
       {
         ctx.state.activeUser ? <>{logFn(true)}<div className="link" onClick={()=>{
           ctx.dispatch({type:'failure'})

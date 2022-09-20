@@ -7,6 +7,7 @@ import { Deposit } from './pages/Deposit'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Success } from './pages/Success'
+import { Transactions } from './pages/Transactions'
 import { Withdraw } from './pages/Withdraw'
 
 export const reducer = (state: any, action: any) => {
@@ -23,7 +24,7 @@ export const reducer = (state: any, action: any) => {
 
 export const UserContext: any = createContext(null)
 
-const App = () => {
+const App = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, { users: [], activeUser: false });
   const contextValue = { state, dispatch };
 
@@ -45,8 +46,10 @@ const App = () => {
             <Route path='success' element={<Success type='deposit' />} />
           </Route>
           <Route path='/login' element={<Login />} />
+          <Route path='/transactions' element={<Transactions />} />
         </Routes>
         </div>
+        { children }
       </UserContext.Provider>
     </BrowserRouter>
   )
