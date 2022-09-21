@@ -5,7 +5,7 @@ import { MainPageCard } from "../components/MainPageCard"
 
 export const Home = () => {
   const ctx: any = useContext(UserContext)
-  console.log(ctx.state.users)
+
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'

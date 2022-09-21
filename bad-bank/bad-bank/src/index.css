@@ -49,7 +49,7 @@ code {
   cursor: pointer;
 }
 
-.link:hover {
+.link:hover, .active {
   background-color: #adadfa;
   color: #373769;
 }

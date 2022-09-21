@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useContext, useEffect } from "react"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { UserContext } from "../App"
 
 interface ReturnLoginStatusProps {
@@ -30,6 +30,16 @@ export const Navbar = () => {
   }
 
   const navigate = useNavigate()
+
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log(location.pathname)
+    Array.from(document.getElementsByClassName('link')).forEach(( link: Element) => {
+      if (link.getAttribute('href') === location.pathname) link.classList.add('active') 
+      else link.classList.remove('active')
+    })
+  }, [ location.pathname ])
 
   return (
     <nav className='navbar bg-primary d-flex m-0'>

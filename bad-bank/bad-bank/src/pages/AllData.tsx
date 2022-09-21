@@ -32,15 +32,19 @@ export const AllData = () => {
           <span className='table-head' style={{flex:'3'}}>Action</span>
           <span className='table-head' style={{flex:'1'}}>Balance</span>
         </div>
-        <h5 className="text-danger">User <span className="text-primary">{'>>>'}</span> {user.name}</h5>
+        <h5 className="text-danger">
+          <span className="text-primary">User: </span>  
+          {user.name} 
+          <span className="text-primary ms-5">Email: </span> 
+          {user.email}
+        </h5>
       </div>
     )
   }
 
   return (
     <MainPageCard
-      title='Transaction Report'
-      subtitle={`Showing all transaction history for "${activeUser.name}"`}
+      title='All Account Data'
       content={
         <div className="d-flex flex-column-reverse gap-4 w-100 p-3">
           {
