@@ -14,17 +14,17 @@ export const Navbar = () => {
   
   // create a list of links for the navbar
   const links = [
-      'Create Account',
-      'Login',
-      'Deposit',
-      'Withdraw',
-      'Transactions'
-    ]
+    'Login',
+    'Create Account',
+    'Deposit',
+    'Withdraw',
+    'Transactions'
+  ]
 
     
     // function to return navbar links based on login status
     const logFn: ReturnLoginStatusProps = (loginStatus) => {
-      const linkArray = loginStatus ? links.slice(2) : links.slice(0,2)
+      const linkArray = loginStatus ? links.slice(1) : links.slice(0,2)
       return (
         linkArray.map(link => <Link className='link' key={link.replace(' ', '').toLowerCase()} to={`./${link.replace(' ', '').toLowerCase()}`}>{link}</Link>)
         )

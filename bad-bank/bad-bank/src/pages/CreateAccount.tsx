@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useContext, useState } from "react"
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../App"
 import { MainPageCard } from "../components/MainPageCard"
@@ -16,9 +16,7 @@ const validateUsername = ( value: string ) => {
 
 const validatePassword = ( value: string ) => {
   if (value.length < 8) return { error: 'Password is too short.'}
-  let isValid: boolean = true
-
-  return { error: undefined, data: value }
+  else  return { data: value }
 }
 
 const validateEmail = ( value: string ) => {
@@ -34,7 +32,17 @@ export const CreateAccount = () => {
   const [userValue, setUserValue] = useState('')
   const [passwordValue, setPasswordValue] = useState('')
   const [emailValue, setEmailValue] = useState('')
+  const [isEmpty, setIsEmpty] = useState(true)
   const [errors, setErrors]: [any[], Dispatch<SetStateAction<(any[])>>] = useState([undefined,undefined,undefined])
+
+  useEffect(() => {
+    if (
+      userValue === ''
+      && passwordValue === ''
+      && emailValue === ''
+    ) setIsEmpty(true)
+    else setIsEmpty(false)
+  }, [userValue, passwordValue, emailValue])
 
   const timestamp = Date.now()
   const readableTimestamp = new Date(timestamp).toLocaleDateString()
@@ -54,22 +62,22 @@ export const CreateAccount = () => {
     ]
 
     if (!validatedUser.error && !validatedPassword.error && !validatedEmail.error) {
-      state.users.push(
-        {
-          name: validatedUser.data,
-          password: validatedPassword.data,
-          email: validatedEmail.data,
-          balance: accountBonus,
-          transactions: [
-            {
-              date: readableTimestamp,
-              message:`$${ accountBonus } new account bonus applied.`,
-              runningBalance: accountBonus
-            }
-          ]
-        }
-      )
-      navigation('/', {replace: true})
+      const newUser = {
+        name: validatedUser.data,
+        password: validatedPassword.data,
+        email: validatedEmail.data,
+        balance: accountBonus,
+        transactions: [
+          {
+            date: readableTimestamp,
+            message:`$${ accountBonus } new account bonus applied.`,
+            runningBalance: accountBonus
+          }
+        ]
+      }
+      state.users.push(newUser)
+      state.activeUser = newUser
+      navigation('/accountcreated', {replace: true})
     }
     else {
       setErrors([ validatedUser.error, validatedPassword.error, validatedEmail.error])
@@ -141,7 +149,10 @@ export const CreateAccount = () => {
           />
           { errors[2] && displayError(errors[2])}
           
-          <button className="btn btn-primary m-auto">
+          <button
+            className="btn btn-primary m-auto"
+            disabled={isEmpty}
+          >
             Create
           </button>
 

@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
+import { AccountCreated } from './pages/AccountCreated'
 import { AllData } from './pages/AllData'
 import { CreateAccount } from './pages/CreateAccount'
 import { Deposit } from './pages/Deposit'
@@ -36,6 +37,7 @@ const App = ({ children }: any) => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/createaccount' element={<CreateAccount />} />
+          <Route path='/accountcreated' element={<AccountCreated />} />
           <Route path='/alldata' element={<AllData />} />
           <Route path='withdraw'>
             <Route path='' element={<Withdraw />} />

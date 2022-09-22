@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <MainPageCard
       title='Welcome to Baddest Bank'
-      subtitle='Safety is your #1 concern!'
+      subtitle='Security is your #1 concern!'
       content={
         <div className="homepage-container">
           <div className="home-message">
