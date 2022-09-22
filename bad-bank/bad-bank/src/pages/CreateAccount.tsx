@@ -5,13 +5,14 @@ import { MainPageCard } from "../components/MainPageCard"
 
 /*  ::: Validation Station :::  */
 const validateUsername = ( value: string ) => {
-  if (value.length < 1) return { error: 'Username is too short.'}
-  let isValid: boolean = true
-  value.split('').forEach((character: string) => {
-    if (!/^[a-zA-Z]/.test(character)) isValid = false
-  })
-  if (isValid) return { data: value }
-  else return { error: 'Username can only contain letters.' }
+  if (value.length < 1) return { error: 'Username can not be empty.'}
+  else return { data: value }
+  // let isValid: boolean = true
+  // value.split('').forEach((character: string) => {
+  //   if (!/^[a-zA-Z]/.test(character)) isValid = false
+  // })
+  // if (isValid) return { data: value }
+  // else return { error: 'Username can only contain letters.' }
 }
 
 const validatePassword = ( value: string ) => {

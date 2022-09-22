@@ -5,11 +5,11 @@ import { MainPageCard } from "../components/MainPageCard"
 
 export const AllData = () => {
   const { state }: any = useContext(UserContext)
-  const { users, activeUser } = state
+  const { users } = state
   
-  const userTransactions = (user: any) => {
+  const userTransactions = (user: any, key: number) => {
     return (
-      <div className="d-flex flex-column-reverse gap-2">
+      <div key={user.name + key} className="d-flex flex-column-reverse gap-2">
         {
           user.transactions.map((line: any, index: number) => {
             return (
@@ -48,7 +48,7 @@ export const AllData = () => {
       content={
         <div className="d-flex flex-column-reverse gap-4 w-100 p-3">
           {
-            users.map((user: any) => userTransactions(user))
+            users.map((user: any, index:number) => userTransactions(user, index))
           }
         </div>
       }
