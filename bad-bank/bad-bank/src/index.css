@@ -133,3 +133,10 @@ input {
   margin-top: -.6rem;
   font-weight: 700;
 }
+
+.warning {
+  border: 1px dotted #373737;
+  background-color: rgb(255 255 0 / .7);
+  padding: 1rem;
+  font-weight: 700;
+}
