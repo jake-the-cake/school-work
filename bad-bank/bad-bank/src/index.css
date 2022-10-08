@@ -140,3 +140,15 @@ input {
   padding: 1rem;
   font-weight: 700;
 }
+
+.navbar {
+  z-index: 20;
+}
+
+.info {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  top: 15px;
+  transition: top .3s;
+}

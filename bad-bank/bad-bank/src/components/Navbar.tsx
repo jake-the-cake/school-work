@@ -58,15 +58,21 @@ export const Navbar = () => {
     Array.from(document.getElementsByClassName('link')).forEach((link: Element) => {
       link.addEventListener('mouseover', (event) => {
         setInfoMessage(info.filter(i => (event.target as HTMLAnchorElement).innerText === i[0])[0][1] || 'message')
+        setTimeout(() => {
+          (document.getElementById('info') as HTMLDivElement).style.top = '35px'
+        }, 10)
       })
       link.addEventListener('mouseout', () => {
-        setInfoMessage('')
+        (document.getElementById('info') as HTMLDivElement).style.top = '15px'
+        setTimeout(() => {
+          setInfoMessage('')
+        }, 300)
       })
     })
   }, [ctx.state.activeUser])
 
   return (
-    <><nav className='navbar bg-primary d-flex m-0'>
+    <><nav className='navbar bg-primary d-flex m-0 position-relative'>
       <div className='logo'>
         <Link to="./" className='text-light logo-text text-decoration-none'>BaddestBank</Link>
       </div>
@@ -81,7 +87,7 @@ export const Navbar = () => {
       }
       </>
     </nav>
-    <div className="bg-warning text-dark text-bold text-center">{ infoMessage }</div>
+    <div id="info" className="bg-warning text-dark text-bold text-center info">{ infoMessage }</div>
     </>
   )
 }

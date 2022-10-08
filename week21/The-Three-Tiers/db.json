@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "lowdb is awesome",
+      "published": true
+    },
+    {
+      "id": 2,
+      "title": "great",
+      "published": true
+    },
+    {
+      "id": 3,
+      "title": "new own",
+      "published": false
+    },
+    {
+      "id": 4,
+      "title": "random",
+      "published": false
+    },
+    {
+      "id": "1",
+      "title": "ping",
+      "published": "false"
+    },
+    {
+      "id": "6",
+      "title": "wow",
+      "published": "true"
+    },
+    {
+      "id": "[object HTMLInputElement]",
+      "title": "post from the web",
+      "published": "false"
+    },
+    {
+      "id": "12",
+      "title": "hello world",
+      "published": "true"
+    }
+  ]
+}

@@ -15,6 +15,9 @@ export const Transactions = () => {
         <div className="d-flex flex-column-reverse gap-3 w-100 p-3">
           {
             activeUser.transactions.map((line: any, index: number) => {
+              const runningBalance = line.runningBalance.toFixed(2)
+              let fontColor = '#373737'
+              if (runningBalance < 0) fontColor = '#ed3769'
               return (
                 <div key={index} className="d-flex w-100 justify-content-between">
                   <span style={{flex:'1', textAlign:'center'}}>
@@ -23,8 +26,8 @@ export const Transactions = () => {
                   <span style={{flex:'3', textAlign:'center'}}>
                     {line.message}
                   </span>
-                  <span style={{flex:'1', textAlign:'center'}}>
-                    $ <i>{line.runningBalance.toFixed(2)}</i>
+                  <span style={{flex:'1', textAlign:'center', color: fontColor }}>
+                    $ <i>{runningBalance}</i>
                   </span>
                 </div>
               )

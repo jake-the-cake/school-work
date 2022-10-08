@@ -90,9 +90,9 @@ const Products = (props) => {
   } = ReactBootstrap;
   //  Fetch Data
   const { Fragment, useState, useEffect, useReducer } = React;
-  const [query, setQuery] = useState("http://localhost:1337/products");
+  const [query, setQuery] = useState("http://localhost:1337/api/products");
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    "http://localhost:1337/products",
+    "http://localhost:1337/api/products",
     {
       data: [],
     }
@@ -179,6 +179,17 @@ const Products = (props) => {
     return newTotal;
   };
   const restockProducts = (url) => {
+    fetch('http://localhost:1337/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({query: "{ hello }"})
+      })
+      .then(r => r.json())
+      .then(data => console.log('data returned:', data));
+    
     doFetch(url);
     let newItems = data.map((item) => {
       let { name, country, cost, instock } = item;
@@ -207,7 +218,7 @@ const Products = (props) => {
       <Row>
         <form
           onSubmit={(event) => {
-            restockProducts(`http://localhost:1337/${query}`);
+            restockProducts(query);
             console.log(`Restock called on ${query}`);
             event.preventDefault();
           }}
