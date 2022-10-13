@@ -1,0 +1,20 @@
+{
+  "name": "httppost",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "faker": "^6.6.6",
+    "lowdb": "^3.0.0"
+  },
+  "scripts": {
+    "build": "npm install",
+    "start": "node http_server.js"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
