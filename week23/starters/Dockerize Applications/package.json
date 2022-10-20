@@ -1,0 +1,15 @@
+{
+  "name": "docnode",
+  "version": "1.0.0",
+  "description": "barebones node on docker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abel@mit.edu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.5"
+  }
+}
