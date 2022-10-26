@@ -1,0 +1,11 @@
+{
+  "name": "server-docker",
+  "version": "1.0.0",
+  "description": "mini server to create an image",
+  "main": "index.js",
+  "author": "jake thompson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

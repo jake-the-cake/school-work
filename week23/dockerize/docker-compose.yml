@@ -1,0 +1,21 @@
+version: '2'
+services:
+  client:
+  # Step 5.1 - Point build step to the client directory
+    build: './client'
+    ports:
+    - '3000:3000'
+    depends_on:
+    - server
+  server:
+    # Step 5.3 - Point build step to the server directory
+
+    build: './server'
+    ports:
+    - '8080:8080'
+    depends_on:
+    - mongo
+  mongo:
+    image: mongo
+    ports:
+    - '27017:27017'
