@@ -1,0 +1,18 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
+<h1>easy</h1>
+<script>
+    const url = '/account/create/peter/peter@mit.edu/secret'
+
+    function create(){
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                return data;
+            });
+    }
+    function invoke(){
+        create().then(response => console.log('response:',response));
+        console.log('Ran to end!');
+    }
+    
+</script>    

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclic="setObject()">Set Object</button>
+<button onclick="getObject()">Get Object</button> 
+<script>
+
+function setObject(){
+    var object = {username : 'peterparker', email : 'peter@mit.edu'};
+    localStorage.setItem('object', JSON.stringify(object));
+}
+
+function getObject(){
+    var object = localStorage.getItem('object');
+    object = JSON.parse(object);
+    console.log(object);
+}
+</script>
+</body>	
+</html>

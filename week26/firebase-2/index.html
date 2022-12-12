@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background-color: #adadad;
+            width: 500px;
+            padding: 1rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: .5rem;
+            border: 2px solid #373737;
+            box-shadow: 0 3px 10px 0px #3769ff;
+        }
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        button {
+            background-color: #3769ff;
+            color: white;
+            padding: .5rem;
+            border: none;
+            border-radius: .5rem;
+            cursor: pointer;
+        }
+    </style>
+    <title>Firebase Google Login Test</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+</head>
+<div class="card">
+    <h1 id="loggedInStatus">You are not yet logged in</h1>
+    <hr>
+    <input id="email" type="email" placeholder="Email"><br>
+    <input id="password" type="password" placeholder="Password"><br><br>
+    <div class="buttons">
+        <button id="login">Login</button>
+        <button id="signup">SignUp</button>
+        <button id="logout" style="display:none;">Logout</button>
+        <!-- TODO: Add google login in button with id: googlelogin  -->
+        <button id="googlelogin">Google Login</button>
+    </div>
+</div>
+<script src="login.js" type="module"></script>
+
+</html>

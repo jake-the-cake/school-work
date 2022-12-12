@@ -1,0 +1,13 @@
+<script>
+
+// only works if server allows CORS
+(async function(){
+
+    let url = 'https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap';
+    const res = await fetch(url);
+    const data = await res.text();
+    console.log(data);
+
+})();
+
+</script>

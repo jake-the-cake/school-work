@@ -1,0 +1,11 @@
+{
+  "name": "hg",
+  "version": "1.0.0",
+  "description": "holy grail assignment",
+  "main": "index.js",
+  "author": "askjake331@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
